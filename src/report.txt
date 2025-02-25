@@ -1,0 +1,61 @@
+HeapSort:
+Time taken: 1734.946015 ms
+Time taken: 1187.929334 ms
+Time taken: 1625.606089 ms
+Time taken: 1597.251522 ms
+Time taken: 1545.192652 ms
+Time taken: 1628.099572 ms
+Time taken: 1626.495906 ms
+Time taken: 1102.600859 ms
+Time taken: 1615.255986 ms
+Time taken: 1638.597415 ms
+---
+MergeSort:
+Time taken: 170.758352 ms
+Time taken: 169.346984 ms
+Time taken: 341.237922 ms
+Time taken: 348.175430 ms
+Time taken: 348.764302 ms
+Time taken: 346.274243 ms
+Time taken: 340.453484 ms
+Time taken: 350.498805 ms
+Time taken: 348.993907 ms
+Time taken: 348.500190 ms
+---
+
+QuickSort:
+Time taken: 145.764731 ms
+Time taken: 166.614794 ms
+Time taken: 346.500886 ms
+Time taken: 357.156834 ms
+Time taken: 335.304066 ms
+Time taken: 347.369905 ms
+Time taken: 351.637932 ms
+Time taken: 349.292370 ms
+Time taken: 363.977866 ms
+Time taken: 363.105556 ms
+---
+
+Sort-std:
+Time taken: 123.479357 ms
+Time taken: 106.573012 ms
+Time taken: 372.981970 ms
+Time taken: 426.154367 ms
+Time taken: 362.232306 ms
+Time taken: 334.453905 ms
+Time taken: 338.886806 ms
+Time taken: 348.703364 ms
+Time taken: 395.354010 ms
+Time taken: 367.680902 ms
+
+Sort-numpy:
+Time taken: 42.299032 ms
+Time taken: 21.840334 ms
+Time taken: 36.888361 ms
+Time taken: 38.674593 ms
+Time taken: 27.571678 ms
+Time taken: 30.512094 ms
+Time taken: 29.886723 ms
+Time taken: 28.113604 ms
+Time taken: 33.954382 ms
+Time taken: 33.198357 ms

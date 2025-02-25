@@ -1,0 +1,178 @@
+\title{Template báo cáo UIT}
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[12pt]{article}
+\usepackage[T5]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[vietnamese,english]{babel}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{listings}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.17}
+
+\begin{document}
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} 
+
+\center % Căn lề giữa
+ 
+%----------------------------------------------------------------------------------------
+%	HEADING 
+%----------------------------------------------------------------------------------------
+
+% Tên trường
+\textsc{\LARGE \bf Đại học quốc gia TP.HCM}
+\newline
+\textsc{\LARGE \bf Trường đại học công nghệ thông tin}\\[1.5cm] 
+
+% Logo trường
+
+\graphicspath{ {./logo/} }
+ 
+\includegraphics[scale=0.5]{logo-uit.png}\\[1.5cm]
+
+% Chuyên ngành 
+\textsc{\Large \bf Ngành: Khoa học máy tính}\\[0.5cm] 
+
+% Môn học
+\textsc{\large \bf Môn học: IT003.P21.CTTN}\\[1.0cm] 
+
+%----------------------------------------------------------------------------------------
+%	TITLE 
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.4cm]
+{ \huge \bfseries BÁO CÁO KẾT QUẢ THỬ NGHIỆM CÁC GIẢI THUẬT SẮP XẾP}\\[0.4cm] 
+\HRule \\[1.5cm]
+ 
+%----------------------------------------------------------------------------------------
+%	TÁC GIẢ 
+%----------------------------------------------------------------------------------------
+
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Sinh viên:}\\
+Trần Quang Trường - MSSV: 24521901
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{Giảng viên:} \\
+Nguyễn Thanh Sơn
+\end{flushright}
+\end{minipage}\\[2cm]
+
+
+%----------------------------------------------------------------------------------------
+%	NỘI DUNG 
+%----------------------------------------------------------------------------------------
+
+
+
+\vfill 
+
+\end{titlepage}
+
+
+\section{Kết quá thực nghiệm}
+\textbf{Bảng thời gian thực hiện}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \textbf{Dữ liệu} & \multicolumn{5}{c|}{\textbf{Thời gian thực hiện (ms)}} \\ 
+        \cline{2-6}
+         & \textbf{Quicksort} & \textbf{Heapsort} & \textbf{Mergesort} & \textbf{sort (C++)} & \textbf{sort (numpy)} \\
+        \hline
+        1  & 145.76 & 1734.94 & 170.75 & 123.47 & 42.29 \\ 
+        \hline
+        2  & 166.61 & 1187.92 & 169.34 & 106.57 & 21.84 \\ 
+        \hline
+        3  & 346.50 & 1625.60 & 341.23 & 372.98 & 36.88 \\ 
+        \hline
+        4  & 357.15 & 1597.25 & 348.17 & 426.15 & 38.67 \\ 
+        \hline
+        5  & 335.30 & 1545.19 & 348.76 & 362.23 & 27.57 \\ 
+        \hline
+        6  & 347.36 & 1628.09 & 346.27 & 334.45 & 30.51 \\ 
+        \hline
+        7  & 351.63 & 1626.49 & 340.45 & 338.88 & 29.88 \\ 
+        \hline
+        8  & 349.29 & 1102.60 & 350.49 & 348.70 & 28.11 \\ 
+        \hline
+        9  & 363.97 & 1615.25 & 348.99 & 395.35 & 33.95 \\ 
+        \hline
+        10 & 363.10 & 1638.59 & 348.50 & 367.68 & 33.19 \\ 
+        \hline
+        \textbf{Trung bình} & \textbf{326.67} & \textbf{1520.89} & \textbf{340.19} & \textbf{317.74} & \textbf{32.79} \\ 
+        \hline
+    \end{tabular}
+\end{table}
+
+\textbf{Biểu đồ (cột) thời gian thực hiện}
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            ybar,
+            symbolic x coords={Mảng sắp tăng, Mảng sắp giảm, Mảng ngẫu nhiên},
+            xtick=data,
+            ymin=0, ymax=1800,
+            ylabel={Thời gian thực hiện (ms)},
+            enlarge x limits=0.3,
+            width=14cm,
+            height=15cm,
+            bar width=15pt,
+            legend style={at={(0.5,-0.3)}, anchor=north, legend columns=-1}, % Chuyển chú thích xuống xa hơn
+            ytick={0, 100,200,300,400,1200,1600,1800},
+            extra y tick labels={$\vdots$},
+            extra y tick style={
+                grid=major,
+                tick label style={font=\Large, yshift=-1ex}
+            },
+            yscale=0.5, % Nén trục Y
+            nodes near coords*={},
+        ]
+
+        \addplot coordinates {(Mảng sắp tăng,1734.95) (Mảng sắp giảm,1187.93) (Mảng ngẫu nhiên,1625.61)}; % HeapSort
+        \addplot coordinates {(Mảng sắp tăng,170.76) (Mảng sắp giảm,169.35) (Mảng ngẫu nhiên,341.24)};  % MergeSort
+        \addplot coordinates {(Mảng sắp tăng,145.76) (Mảng sắp giảm,166.61) (Mảng ngẫu nhiên,346.50)};  % QuickSort
+        \addplot coordinates {(Mảng sắp tăng,123.48) (Mảng sắp giảm,106.57) (Mảng ngẫu nhiên,372.98)};  % Sort-std
+        \addplot coordinates {(Mảng sắp tăng,42.30) (Mảng sắp giảm,21.84) (Mảng ngẫu nhiên,36.89)};    % Sort-numpy
+        
+        \legend{HeapSort, MergeSort, QuickSort, Sort (C++), Sort (numpy)}
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+\section{Kết luận}
+
+Từ kết quả thử nghiệm, có thể thấy rằng thuật toán \textbf{Sort (numpy)} hoạt động nhanh nhất, với thời gian trung bình chỉ khoảng 30.69ms. Ngược lại, \textbf{Heap Sort} là thuật toán chậm nhất, mất trung bình khoảng 1460.80ms để hoàn thành một lần sắp xếp.
+
+Lý do \textbf{Sort (numpy)} nhanh như vậy là do nó sử dụng tối ưu hóa cấp thấp và xử lý dữ liệu theo kiểu vector hóa, giúp giảm đáng kể số lượng phép toán so với các thuật toán truyền thống. Trong khi đó, \textbf{Heap Sort} tuy có độ phức tạp $O(n \log n)$ nhưng lại thực hiện nhiều thao tác hoán đổi và truy cập bộ nhớ hơn, khiến nó kém hiệu quả hơn so với các thuật toán khác.
+
+Trong nhóm các thuật toán truyền thống, \textbf{Merge Sort} và \textbf{Quick Sort} có tốc độ tương đối ổn, trung bình khoảng 296.50ms và 302.47ms. \textbf{Sort (C++)} (thuật toán sắp xếp mặc định của C++) cũng khá nhanh với trung bình 328.79ms.
+
+Nhìn chung, nếu chỉ xét về tốc độ, \textbf{Sort (numpy)} là lựa chọn tốt nhất. Nếu không dùng thư viện bên ngoài, \textbf{Merge Sort} hoặc \textbf{Quick Sort} là hai lựa chọn hợp lý. Còn \textbf{Heap Sort}, trừ khi có lý do đặc biệt, không phải là phương án tối ưu.
+
+\section{Thông tin chi tiết}
+
+\noindent Mọi thông tin về mã nguồn, báo cáo và các tài liệu liên quan có thể được tìm thấy tại:  
+\noindent\url{https://github.com/QioCas/Sorting-Algorithms-Report}
+
+\end{document}
